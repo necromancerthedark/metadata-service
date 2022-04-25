@@ -1,0 +1,11 @@
+##BUILD STAGE
+FROM maven as build
+WORKDIR /home/app/src
+COPY pom.xml .
+COPY . .
+RUN mvn clean test
+
+##Run STAGE
+FROM openjdk:alpine
+COPY --from=build /home/app/src/metadata-service.jar .
+CMD java -jar metadata-service.jar
