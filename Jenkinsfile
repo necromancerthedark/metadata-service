@@ -2,7 +2,7 @@
 pipeline {
     agent any
     environment {
-        DOCKER_IMAGE_NAME = "necromancerthedark/metadata_container"
+        DOCKER_IMAGE_NAME = "necromancerthedark/metadata_container:v1"
         DOCKER_USERNAME = "necromancerthedark"
         DOCKER_PASSWORD = credentials('DOCKER_SECRET')
     }
